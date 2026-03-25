@@ -1,0 +1,469 @@
+@media (max-width: 1300px) {
+  .container {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .site-header {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1120px) {
+  body {
+    font-size: 16px;
+  }
+  .course-card {
+    grid-template-columns: 1fr;
+  }
+
+  .course-side {
+    position: static;
+  }
+  .program-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav a {
+    font-size: 15px;
+  }
+  .title {
+    font-size: 35px;
+  }
+  .about-content {
+    padding: 15px;
+  }
+  .about-text {
+    font-size: 16px;
+  }
+  .card-text {
+    line-height: 1.5;
+  }
+  .price-card::before {
+    display: none;
+  }
+  .course-btn-main,
+  .course-btn-secondary {
+    max-width: 300px;
+  }
+  .price-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* tablet */
+@media (max-width: 991px) {
+  .header-inner {
+    min-height: 68px;
+  }
+
+  .logo img {
+    max-width: 165px;
+  }
+
+  .nav a {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  .about {
+    padding: 90px 0;
+  }
+
+  .about-wrap {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-title {
+    font-size: clamp(30px, 6vw, 48px);
+  }
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .about-image-box,
+  .about-image-box img {
+    min-height: 500px;
+  }
+
+  .about-bg-number--one {
+    display: none;
+  }
+
+  .about-bg-number--two {
+    top: 10px;
+    right: -10px;
+  }
+  .hero-list li::before {
+    width: 8px;
+    height: 8px;
+  }
+  .slider .person-card {
+    flex: 0 0 calc(50% - 12px);
+  }
+  .contacts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section {
+    padding: 30px 15px;
+  }
+  .hero {
+    padding-top: 60px;
+  }
+  .course-main .logo-text {
+    max-width: 199px;
+    top: -50px;
+    right: 15px;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .back {
+    padding-top: 15px;
+  }
+  .site-header {
+    padding: 0 15px;
+    margin: 0 15px 15px;
+  }
+
+  .header-inner {
+    min-height: 40px;
+  }
+
+  .logo {
+    max-width: 150px;
+    z-index: 10000;
+  }
+
+  .logo img {
+    max-width: 180px;
+  }
+  .section-label {
+    margin-bottom: 15px;
+  }
+  .burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(63, 74, 60, 0.1);
+    border-radius: 22px;
+    box-shadow: 0 20px 40px rgba(63, 74, 60, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    z-index: 100;
+    pointer-events: none;
+    transition:
+      opacity var(--transition),
+      visibility var(--transition),
+      transform var(--transition);
+  }
+
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav a {
+    width: 100%;
+    min-height: 50px;
+    justify-content: flex-start;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: transparent;
+    font-size: 15px;
+  }
+
+  .nav a::after {
+    display: none;
+  }
+  .about {
+    padding: 30px 0 0;
+    border-radius: 30px;
+  }
+
+  .about-title {
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .about-feature {
+    padding: 18px;
+  }
+
+  .about-feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    font-size: 18px;
+  }
+
+  .about-feature h3 {
+    font-size: 18px;
+  }
+
+  .about-feature p {
+    font-size: 15px;
+  }
+
+  .about-image-box,
+  .about-image-box img {
+    min-height: 400px;
+  }
+
+  .about-card {
+    display: none;
+  }
+
+  .about-card strong {
+    font-size: 18px;
+  }
+
+  .about-bg-number {
+    font-size: clamp(70px, 22vw, 150px);
+  }
+  .hero-label {
+    z-index: -1;
+    font-size: 11px;
+  }
+  .logo-text {
+    max-width: 290px;
+  }
+  .hero-list {
+    max-width: 90%;
+  }
+  .hero-list li::before {
+    display: none;
+  }
+  .hero-list li {
+    padding-left: 0;
+  }
+  .hero-wrap {
+    gap: 15px;
+  }
+  .hero-list,
+  .btn {
+    margin-top: 15px;
+  }
+  .hero-list {
+    gap: 0;
+    z-index: -1;
+  }
+  .title {
+    font-size: 25px;
+  }
+  .section-head {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 8vw, 42px);
+  }
+
+  .section-text p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-title {
+    font-size: 21px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .person-card__body {
+    gap: 10px;
+  }
+  .card-text {
+    font-size: 17px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .slider-track {
+    gap: 16px;
+  }
+
+  .slider .person-card {
+    flex: 0 0 100%;
+    min-height: 686px;
+  }
+
+  .slider-nav {
+    margin-top: 24px;
+    gap: 14px;
+  }
+
+  .slider-arrow {
+    width: 48px;
+    height: 48px;
+  }
+  .course-main .logo-text {
+    max-width: 150px;
+  }
+  .slider-dot.active {
+    width: 26px;
+  }
+  .course-main {
+    padding: 30px 15px;
+  }
+  .course-grid,
+  .course-extra {
+    grid-template-columns: 1fr;
+  }
+  .course-main.mobile-pb-0 {
+    padding-bottom: 0;
+  }
+  .course-title-lg {
+    font-size: 25px;
+  }
+
+  .course-desc,
+  .course-list li {
+    font-size: 16px;
+  }
+  .course-block h5 {
+    font-size: 18px;
+  }
+  .price-card-note {
+    text-align: center;
+  }
+  .program-section {
+    padding: 30px;
+  }
+
+  .program-head {
+    margin-bottom: 40px;
+  }
+
+  .program-card {
+    padding: 70px 30px 30px 30px;
+  }
+
+  .program-card-number {
+    left: 20px;
+    top: 16px;
+    font-size: 52px;
+  }
+
+  .program-card-title {
+    font-size: 18px;
+  }
+
+  .program-list li {
+    font-size: 16px;
+  }
+  .program-bg-number {
+    font-size: clamp(60px, 14vw, 120px);
+  }
+
+  .program-bg-number--one {
+    display: none;
+  }
+  .teacher-modal__dialog {
+    width: min(100% - 16px, 900px);
+    margin: 8px auto;
+    padding: 18px;
+    border-radius: 22px;
+  }
+  .title {
+    margin-bottom: 15px;
+  }
+  .card-docs-btn {
+    width: calc(100% - 36px);
+    margin: 0 18px 18px;
+    font-size: 12px;
+  }
+  .contacts-section {
+    padding: 30px;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 30px;
+  }
+
+  .contact-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+  }
+
+  .contacts-bg-text {
+    font-size: clamp(60px, 25vw, 120px);
+  }
+  .contacts-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-legal-btn {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .legal-modal__dialog {
+    width: min(100% - 16px, 980px);
+    max-height: calc(100vh - 16px);
+    margin: 8px auto;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .legal-modal__head {
+    margin-bottom: 18px;
+  }
+
+  .legal-modal__title {
+    font-size: 24px;
+  }
+
+  .legal-modal__content--text p,
+  .legal-info-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .legal-modal__content--text p,
+  .legal-info-card span {
+    font-size: 15px;
+  }
+  .contacts-logo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .contacts-logo img {
+    max-width: 200px;
+  }
+}
