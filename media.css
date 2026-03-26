@@ -4,7 +4,7 @@
     margin-inline: 0;
   }
   .site-header {
-    width: 90%;
+    width: 94%;
   }
 }
 
@@ -32,7 +32,7 @@
     padding: 15px;
   }
   .about-text {
-    font-size: 16px;
+    font-size: 18px;
   }
   .card-text {
     line-height: 1.5;
@@ -95,7 +95,6 @@
 
   .about-bg-number--two {
     top: 10px;
-    right: -10px;
   }
   .hero-list li::before {
     width: 8px;
@@ -207,11 +206,6 @@
     margin-bottom: 20px;
   }
 
-  .about-text {
-    font-size: 16px;
-    line-height: 1.75;
-  }
-
   .about-feature {
     padding: 18px;
   }
@@ -283,11 +277,6 @@
 
   .section-title {
     font-size: clamp(28px, 8vw, 42px);
-  }
-
-  .section-text p {
-    font-size: 16px;
-    line-height: 1.75;
   }
 
   .cards-grid {
@@ -378,9 +367,6 @@
     font-size: 18px;
   }
 
-  .program-list li {
-    font-size: 16px;
-  }
   .program-bg-number {
     font-size: clamp(60px, 14vw, 120px);
   }
@@ -408,6 +394,7 @@
 
   .contacts-grid {
     grid-template-columns: 1fr;
+    margin-top: 30px;
   }
 
   .contact-card {

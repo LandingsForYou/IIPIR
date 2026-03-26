@@ -34,7 +34,7 @@
 :root {
   --back: rgba(245, 241, 234, 1);
   --accent: #7a8a6b;
-  --text: #414c3d;
+  --text: #333;
   --white: #ffffff;
   --border: rgba(63, 74, 60, 0.12);
   --shadow: 0 10px 30px rgba(63, 74, 60, 0.08);
@@ -111,7 +111,7 @@ body {
   background: var(--back);
   color: var(--text);
   overflow-x: hidden;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: 0%;
@@ -286,7 +286,7 @@ section {
   position: absolute;
   inset: 0;
   background: url("images/hero.jpg") center/cover no-repeat;
-  opacity: 0.6;
+  opacity: 0.2;
   z-index: -2;
 }
 
@@ -527,8 +527,7 @@ section {
 .about-text {
   max-width: 760px;
   font-size: 18px;
-  line-height: 1.8;
-  color: rgba(65, 76, 61, 0.92);
+  line-height: 1.75;
   margin-bottom: 18px;
 }
 
@@ -577,9 +576,8 @@ section {
 }
 
 .about-feature p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.65;
-  color: rgba(65, 76, 61, 0.84);
 }
 
 .about-media {
@@ -611,7 +609,6 @@ section {
   width: 100%;
   height: 100%;
   min-height: 640px;
-  object-fit: cover;
   transform: scale(1.02);
 }
 
@@ -692,7 +689,6 @@ section {
 .section-text p {
   font-size: 18px;
   line-height: 1.8;
-  color: rgba(65, 76, 61, 0.92);
   margin-bottom: 18px;
 }
 
@@ -757,7 +753,6 @@ section {
   font-size: 18px;
   padding: 0 30px 0;
   line-height: 1.75;
-  color: rgba(65, 76, 61, 0.88);
 }
 
 .card-meta {
@@ -956,7 +951,6 @@ span.course-title-lg {
 .course-desc {
   font-size: 18px;
   line-height: 1.7;
-  color: rgba(65, 76, 61, 0.84);
   margin-bottom: 22px;
 }
 
@@ -1050,9 +1044,8 @@ span.course-title-lg {
 .course-list li {
   position: relative;
   padding-left: 18px;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.65;
-  color: rgba(65, 76, 61, 0.88);
 }
 
 .course-list li::before {
@@ -1115,9 +1108,8 @@ span.course-title-lg {
 }
 
 .price-card-note {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
-  color: rgba(65, 76, 61, 0.8);
   margin-bottom: 24px;
 }
 
@@ -1297,9 +1289,8 @@ span.course-title-lg {
 .program-list li {
   position: relative;
   padding-left: 20px;
-  font-size: 17px;
-  line-height: 1.65;
-  color: rgba(65, 76, 61, 0.9);
+  font-size: 18px;
+  line-height: 1.75;
 }
 
 .program-list li::before {
@@ -1704,7 +1695,6 @@ span.course-title-lg {
   box-shadow: 0 10px 24px rgba(63, 74, 60, 0.05);
   font-size: 16px;
   line-height: 1.8;
-  color: rgba(65, 76, 61, 0.92);
   white-space: normal;
 }
 
@@ -1728,5 +1718,88 @@ span.course-title-lg {
   display: block;
   font-size: 17px;
   line-height: 1.7;
-  color: rgba(65, 76, 61, 0.9);
+}
+
+.contact-phones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-phone-main {
+  font-family: "HelveticaBold";
+  font-size: 18px;
+}
+
+.contact-note {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(65, 76, 61, 0.75);
+  max-width: 240px;
+}
+
+.contact-messengers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contact-messengers a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(122, 138, 107, 0.12);
+  color: var(--accent);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.contact-messengers a:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* CERTIFICATE */
+
+.certificate-block {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.certificate-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-family: "HelveticaBold";
+}
+
+.certificate-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.certificate-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.certificate-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.certificate-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: rgba(65, 76, 61, 0.75);
 }
