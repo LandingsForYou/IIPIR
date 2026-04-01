@@ -727,6 +727,7 @@ section {
   object-fit: cover;
   display: block;
   transition: transform 0.45s ease;
+  object-position: top;
 }
 
 .person-card:hover .person-card__image img {
