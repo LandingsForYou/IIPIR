@@ -328,11 +328,10 @@
   .course-extra {
     grid-template-columns: 1fr;
   }
-  .course-main.mobile-pb-0 {
-    padding-bottom: 0;
-  }
+
   .course-title-lg {
-    font-size: 25px;
+    font-size: 23px;
+    line-height: 1.2;
   }
 
   .course-desc,

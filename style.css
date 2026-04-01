@@ -905,7 +905,7 @@ section {
 }
 
 .course-top {
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .course-badge {
@@ -1803,4 +1803,57 @@ span.course-title-lg {
   margin-top: 12px;
   font-size: 14px;
   color: rgba(65, 76, 61, 0.75);
+}
+
+.course-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: rgba(122, 138, 107, 0.1);
+  border: 1px solid rgba(122, 138, 107, 0.18);
+  color: var(--accent);
+  font-size: 14px;
+  font-family: "HelveticaBold";
+  text-transform: uppercase;
+  transition: 0.25s ease;
+}
+
+.course-toggle-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.course-details {
+  display: none;
+  margin-top: 24px;
+}
+
+.course-details.is-open {
+  display: block;
+  animation: fadeInCourse 0.35s ease;
+}
+
+@keyframes fadeInCourse {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.price-card::before {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-card.is-open .price-card::before {
+  opacity: 1;
 }

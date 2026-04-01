@@ -385,3 +385,22 @@ document.addEventListener("keydown", (event) => {
     closeLegalModals();
   }
 });
+
+const courseToggleButtons = document.querySelectorAll(".course-toggle-btn");
+
+courseToggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const courseCard = button.closest(".course-card");
+    const details = courseCard.querySelector(".course-details");
+
+    if (!details) return;
+
+    const isOpen = details.classList.toggle("is-open");
+
+    // 🔥 ОЦЕ НОВЕ
+    courseCard.classList.toggle("is-open", isOpen);
+
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.textContent = isOpen ? "Сховати" : "Дізнатись більше";
+  });
+});
