@@ -1857,3 +1857,7 @@ span.course-title-lg {
 .course-card.is-open .price-card::before {
   opacity: 1;
 }
+
+.course-mobile-price {
+  display: none;
+}

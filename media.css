@@ -452,4 +452,50 @@
   .contacts-logo img {
     max-width: 200px;
   }
+  .course-mobile-price {
+    display: block;
+    margin: 18px 0 14px;
+    padding: 18px;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(63, 74, 60, 0.08);
+    border: 1px solid rgba(63, 74, 60, 0.08);
+  }
+
+  .course-mobile-price-label {
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .course-mobile-price-value {
+    font-family: "HelveticaBold";
+    font-size: 30px;
+    line-height: 1;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  .course-mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .course-mobile-actions .course-btn-main,
+  .course-mobile-actions .course-btn-secondary {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .course-side {
+    display: none;
+  }
+  .course-mobile-price {
+    text-align: center;
+  }
 }
