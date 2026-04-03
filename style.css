@@ -1352,7 +1352,7 @@ span.course-title-lg {
 
 .teacher-modal__dialog {
   position: relative;
-  width: min(900px, calc(100% - 32px));
+  width: min(700px, calc(100% - 32px));
   margin: 30px auto;
   padding: 24px;
   border-radius: 30px;
