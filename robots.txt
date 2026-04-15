@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iipir.net/sitemap.xml
