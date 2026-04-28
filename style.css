@@ -1861,3 +1861,22 @@ span.course-title-lg {
 .course-mobile-price {
   display: none;
 }
+
+.webinar-card .course-main {
+  background: #fff;
+}
+
+.webinar-card .course-block p {
+  font-size: 18px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.webinar-card .course-block p:last-child {
+  margin-bottom: 0;
+}
+
+.webinar-card .course-details {
+  margin-top: 28px;
+  display: block;
+}
