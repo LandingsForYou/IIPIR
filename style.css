@@ -1884,17 +1884,6 @@ span.course-title-lg {
   background: linear-gradient(135deg, #7a8a6b 0%, #8f9d80 50%, #6d7d5f 100%);
 }
 
-.promo-banner::before {
-  content: "SALE";
-  position: absolute;
-  right: -40px;
-  top: -30px;
-  font-family: "HelveticaBold";
-  font-size: clamp(120px, 18vw, 280px);
-  color: rgba(255, 255, 255, 0.08);
-  line-height: 1;
-}
-
 .promo-banner__content {
   max-width: 1280px;
   margin: 0 auto;
@@ -1912,7 +1901,7 @@ span.course-title-lg {
 }
 
 .promo-banner__content .btn {
-  max-width: 300px;
+  max-width: 100%;
 }
 
 .promo-banner__label {
@@ -1971,7 +1960,7 @@ span.course-title-lg {
 
 .promo-banner__text {
   max-width: 720px;
-  margin: 0 auto 35px;
+  margin: 0 auto 10px;
   font-size: 20px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.9);
@@ -2157,4 +2146,15 @@ span.course-title-lg {
   .gift-form input {
     width: 100%;
   }
+}
+
+#free-checklist .promo-price {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#free-checklist .promo-price span {
+  margin-bottom: 0;
 }
