@@ -2158,3 +2158,129 @@ span.course-title-lg {
 #free-checklist .promo-price span {
   margin-bottom: 0;
 }
+
+.gift-mini-section {
+  padding: 60px 30px;
+  background: #fff;
+}
+
+.gift-mini-card {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: center;
+  padding: 34px;
+  border-radius: 36px;
+  background: #fff;
+  border: 1px solid rgba(122, 138, 107, 0.16);
+  box-shadow: 0 24px 55px rgba(63, 74, 60, 0.1);
+}
+
+.gift-mini-label {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(122, 138, 107, 0.1);
+  color: var(--accent);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gift-mini-content h2 {
+  max-width: 620px;
+  margin-bottom: 16px;
+  font-family: "HelveticaBold";
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
+
+.gift-mini-content p {
+  max-width: 620px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.gift-mini-content ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.gift-mini-content li {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--back);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.gift-mini-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 34px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 16px 30px rgba(122, 138, 107, 0.22);
+  transition: 0.3s ease;
+}
+
+.gift-mini-btn:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  color: var(--accent);
+}
+
+.gift-mini-visual {
+  min-height: 330px;
+  border-radius: 30px;
+  padding: 28px;
+  background:
+    linear-gradient(145deg, rgba(122, 138, 107, 0.18), rgba(245, 241, 234, 1)),
+    #f5f1ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-mini-visual::after {
+  content: "🎁";
+  position: absolute;
+  right: 22px;
+  bottom: 12px;
+  font-size: 110px;
+  opacity: 0.18;
+}
+
+.gift-mini-visual span {
+  font-family: "HelveticaBold";
+  font-size: 72px;
+  line-height: 1;
+  color: rgba(122, 138, 107, 0.35);
+}
+
+.gift-mini-visual strong {
+  max-width: 260px;
+  font-family: "HelveticaBold";
+  font-size: 30px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.gift-mini-visual small {
+  color: var(--accent);
+  font-size: 15px;
+}

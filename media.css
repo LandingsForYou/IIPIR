@@ -499,3 +499,55 @@
     text-align: center;
   }
 }
+@media (max-width: 767px) {
+  .gift-mini-section {
+    padding: 30px;
+  }
+
+  .gift-mini-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 26px;
+  }
+
+  .gift-mini-label {
+    margin-bottom: 20px;
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+
+  .gift-mini-content h2 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    line-height: 1.05;
+  }
+
+  .gift-mini-content p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .gift-mini-content ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 20px;
+  }
+
+  .gift-mini-content li {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .gift-mini-btn {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .gift-mini-visual {
+    display: none;
+  }
+}
