@@ -1,0 +1,153 @@
+/* Додаткові стилі лише для окремої сторінки курсу.
+   Основне оформлення береться з вашого style.css та media.css. */
+
+.single-course-page {
+  min-height: 100vh;
+}
+
+.single-course-header {
+  padding: 30px 0 0;
+}
+
+.single-course-header::before {
+  opacity: 0.12;
+}
+
+.single-course-section {
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+
+.single-course-section .course-card {
+  margin-top: 0;
+}
+
+.single-course-section .course-details {
+  display: block;
+}
+
+.course-discount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 16px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  font-family: "HelveticaBold";
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 20px rgba(122, 138, 107, 0.2);
+}
+
+.course-old-price {
+  margin-bottom: 8px;
+  color: rgba(51, 51, 51, 0.48);
+  font-family: "HelveticaBold";
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: line-through;
+}
+
+.price-card .course-discount {
+  margin-bottom: 18px;
+}
+
+.single-course-section .price-card-value,
+.single-course-section .course-mobile-price-value {
+  color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .single-course-header {
+    padding-top: 0;
+  }
+
+  .single-course-section {
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .single-course-section .course-main .logo-text {
+    position: static;
+    max-width: 190px;
+    margin: 0 0 20px auto;
+  }
+
+  .course-old-price {
+    font-size: 20px;
+  }
+}
+
+/* Мобільне меню на сторінці курсу:
+   відкривається у потоці документа й не перекриває main. */
+@media (max-width: 767px) {
+  .single-course-page .single-course-header {
+    overflow: visible;
+  }
+
+  .single-course-page .site-header {
+    position: relative;
+  }
+
+  .single-course-page .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .single-course-page .nav {
+    position: static;
+    order: 3;
+    flex-basis: 100%;
+    width: 100%;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 18px;
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    pointer-events: none;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease,
+      margin 0.3s ease,
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+  }
+
+  .single-course-page .nav.is-open {
+    max-height: 260px;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid rgba(63, 74, 60, 0.1);
+    background: #fff;
+    box-shadow: 0 14px 28px rgba(63, 74, 60, 0.1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .single-course-page main {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .single-course-section .course-main .logo-text,
+  .site-header {
+    display: none;
+  }
+}
+
+.course-main {
+  background: #fff;
+}
