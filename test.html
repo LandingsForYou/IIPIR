@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Професійний профіль | IIPIR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <main class="quiz-page">
+      <section class="quiz-shell">
+        <div class="quiz-topbar">
+          <a class="brand" href="index.html" aria-label="На головну">
+            <img src="images/IIPIR.png" alt="IIPIR Psycourses" />
+          </a>
+          <div class="progress-copy">
+            <span id="progressText">Питання 1 з 6</span>
+            <strong id="progressPercent">17%</strong>
+          </div>
+        </div>
+
+        <div class="progress" aria-hidden="true">
+          <span id="progressBar"></span>
+        </div>
+
+        <header class="quiz-intro">
+          <span class="eyebrow"
+            ><i class="fa-solid fa-leaf"></i>Визначте свій рівень підготовки та
+            професійні інтереси</span
+          >
+
+          <p>Оберіть відповіді, які найбільше відповідають вашій ситуації.</p>
+        </header>
+
+        <form id="profileForm" class="quiz-card" novalidate>
+          <section class="question is-active" data-step="1">
+            <div class="question-num">01</div>
+            <div class="question-head">
+              <span>Один варіант відповіді</span>
+              <h2>На якому етапі психологічної освіти ви зараз?</h2>
+            </div>
+            <div class="options">
+              <label class="option"
+                ><input type="radio" name="q1" value="A" /><span
+                  class="option-mark"
+                  >А</span
+                ><span>Тільки починаю навчання</span></label
+              >
+              <label class="option"
+                ><input type="radio" name="q1" value="B" /><span
+                  class="option-mark"
+                  >Б</span
+                ><span
+                  >Навчаюся, але вже маю базові знання з психології</span
+                ></label
+              >
+              <label class="option"
+                ><input type="radio" name="q1" value="C" /><span
+                  class="option-mark"
+                  >В</span
+                ><span
+                  >Завершую навчання або маю базову психологічну освіту</span
+                ></label
+              >
+              <label class="option"
+                ><input type="radio" name="q1" value="D" /><span
+                  class="option-mark"
+                  >Г</span
+                ><span
+                  >Маю психологічну освіту та додаткову професійну
+                  підготовку</span
+                ></label
+              >
+            </div>
+          </section>
+
+          <section class="question" data-step="2">
+            <div class="question-num">02</div>
+            <div class="question-head">
+              <span>Один варіант відповіді</span>
+              <h2>Чи маєте ви досвід консультування клієнтів?</h2>
+            </div>
+            <div class="options">
+              <label class="option"
+                ><input type="radio" name="q2" value="A" /><span
+                  class="option-mark"
+                  >А</span
+                ><span>Ні, ще не консультував/ла</span></label
+              >
+              <label class="option"
+                ><input type="radio" name="q2" value="B" /><span
+                  class="option-mark"
+                  >Б</span
+                ><span
+                  >Був досвід навчального консультування або рольових
+                  практик</span
+                ></label
+              >
+              <label class="option"
+                ><input type="radio" name="q2" value="C" /><span
+                  class="option-mark"
+                  >В</span
+                ><span
+                  >Маю невеликий досвід роботи з реальними клієнтами</span
+                ></label
+              >
+              <label class="option"
+                ><input type="radio" name="q2" value="D" /><span
+                  class="option-mark"
+                  >Г</span
+                ><span>Регулярно консультую клієнтів</span></label
+              >
+            </div>
+          </section>
+
+          <section class="question" data-step="3">
+            <div class="question-num">03</div>
+            <div class="question-head">
+              <span>Можна обрати кілька варіантів</span>
+              <h2>З якою категорією клієнтів вам найбільш цікаво працювати?</h2>
+            </div>
+            <div class="options options--check">
+              <label class="option"
+                ><input type="checkbox" name="q3" value="Діти" /><span
+                  class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Діти</span></label
+              >
+              <label class="option"
+                ><input type="checkbox" name="q3" value="Підлітки" /><span
+                  class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Підлітки</span></label
+              >
+              <label class="option"
+                ><input type="checkbox" name="q3" value="Дорослі" /><span
+                  class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Дорослі</span></label
+              >
+              <label class="option"
+                ><input type="checkbox" name="q3" value="Пари та сім'ї" /><span
+                  class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Пари та сім'ї</span></label
+              >
+            </div>
+          </section>
+
+          <section class="question" data-step="4">
+            <div class="question-num">04</div>
+            <div class="question-head">
+              <span>Можна обрати кілька варіантів</span>
+              <h2>Який напрям психологічної роботи вам найбільш цікавий?</h2>
+            </div>
+            <div class="options options--check">
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q4"
+                  value="Дитяча та підліткова психологія"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Дитяча та підліткова психологія</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q4"
+                  value="Сімейна та парна терапія"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Сімейна та парна терапія</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q4"
+                  value="Психотерапія дорослих"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Психотерапія дорослих</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q4"
+                  value="Клінічна психологія та робота з психічними розладами"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span
+                  >Клінічна психологія та робота з психічними розладами</span
+                ></label
+              >
+            </div>
+          </section>
+
+          <section class="question" data-step="5">
+            <div class="question-num">05</div>
+            <div class="question-head">
+              <span>Можна обрати кілька варіантів</span>
+              <h2>Який формат професійної діяльності вам найбільш цікавий?</h2>
+            </div>
+            <div class="options options--check">
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q5"
+                  value="Індивідуальне психологічне консультування"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Індивідуальне психологічне консультування</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q5"
+                  value="Робота з парами та сім'ями"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Робота з парами та сім'ями</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q5"
+                  value="Групова робота та психологічні групи"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Групова робота та психологічні групи</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q5"
+                  value="Психодіагностика та комплексна робота з клієнтом"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span
+                  >Психодіагностика та комплексна робота з клієнтом</span
+                ></label
+              >
+            </div>
+          </section>
+
+          <section class="question" data-step="6">
+            <div class="question-num">06</div>
+            <div class="question-head">
+              <span>Можна обрати кілька варіантів</span>
+              <h2>Який напрям ви хотіли б поглибити найближчим часом?</h2>
+            </div>
+            <div class="options options--check">
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q6"
+                  value="Психологічне консультування та базові навички роботи з клієнтом"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span
+                  >Психологічне консультування та базові навички роботи з
+                  клієнтом</span
+                ></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q6"
+                  value="Робота з дітьми та підлітками"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Робота з дітьми та підлітками</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q6"
+                  value="Робота з парами, сім'ями та стосунками"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span>Робота з парами, сім'ями та стосунками</span></label
+              >
+              <label class="option"
+                ><input
+                  type="checkbox"
+                  name="q6"
+                  value="Кризова психологія, травма та складні клієнтські випадки"
+                /><span class="checkmark"
+                  ><i class="fa-solid fa-check"></i></span
+                ><span
+                  >Кризова психологія, травма та складні клієнтські
+                  випадки</span
+                ></label
+              >
+            </div>
+          </section>
+
+          <div class="form-error" id="formError" role="alert"></div>
+
+          <div class="quiz-actions">
+            <button class="btn btn--ghost" id="prevBtn" type="button">
+              <i class="fa-solid fa-arrow-left"></i> Назад
+            </button>
+            <button class="btn" id="nextBtn" type="button">
+              Далі <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn" id="submitBtn" type="submit">
+              Отримати результат <i class="fa-solid fa-check"></i>
+            </button>
+          </div>
+        </form>
+
+        <section class="result-card" id="resultCard" aria-live="polite">
+          <span class="eyebrow"
+            ><i class="fa-solid fa-sparkles"></i> Ваш результат</span
+          >
+          <div class="result-score">
+            <span id="resultScore">0</span><small>/ 8 балів</small>
+          </div>
+          <h2 id="resultTitle"></h2>
+          <p id="resultDescription"></p>
+          <div class="result-group">
+            <span>Рекомендована група</span><strong id="resultGroup"></strong>
+          </div>
+          <p class="result-note">
+            Дякуємо за відповіді. Вони допоможуть формувати програми навчання
+            відповідно до актуальних професійних інтересів студентів.
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <script src="test.js"></script>
+  </body>
+</html>

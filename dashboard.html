@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Dashboard професійних інтересів | IIPIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <main class="dashboard-page">
+    <header class="dash-head container">
+      <a class="brand" href="index.html" aria-label="На головну">
+        <img src="images/IIPIR.png" alt="IIPIR Psycourses" />
+      </a>
+      <button class="refresh-btn" id="refreshBtn" type="button">
+        <i class="fa-solid fa-rotate"></i>
+        Оновити дані
+      </button>
+    </header>
+
+    <section class="hero container">
+      <div>
+        <span class="eyebrow"><i class="fa-solid fa-chart-simple"></i> Аналітика аудиторії</span>
+        <h1>Професійні інтереси студентів</h1>
+        <p>Агрегована статистика відповідей тесту. Питання 3–6 не впливають на рівень підготовки — вони показують напрями, які найбільше цікавлять аудиторію.</p>
+      </div>
+      <div class="updated-box">
+        <span>Останнє оновлення</span>
+        <strong id="lastUpdated">—</strong>
+      </div>
+    </section>
+
+    <section class="container status-wrap">
+      <div class="loading" id="loadingBox">
+        <i class="fa-solid fa-circle-notch fa-spin"></i>
+        <span>Завантажуємо статистику…</span>
+      </div>
+      <div class="error-box" id="errorBox"></div>
+    </section>
+
+    <section class="container stats-grid" id="statsGrid" hidden>
+      <article class="stat-card stat-card--featured">
+        <span class="stat-icon"><i class="fa-solid fa-users"></i></span>
+        <span class="stat-label">Пройшли тест</span>
+        <strong class="stat-value" id="totalResponses">0</strong>
+        <small>збережених відповідей</small>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon"><i class="fa-solid fa-seedling"></i></span>
+        <span class="stat-label">Група 1</span>
+        <strong class="stat-value"><span id="group1Percent">0</span>%</strong>
+        <small><span id="group1Count">0</span> студентів · базовий рівень</small>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon"><i class="fa-solid fa-brain"></i></span>
+        <span class="stat-label">Група 2</span>
+        <strong class="stat-value"><span id="group2Percent">0</span>%</strong>
+        <small><span id="group2Count">0</span> студентів · практичний рівень</small>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon"><i class="fa-solid fa-star"></i></span>
+        <span class="stat-label">Найсильніший інтерес</span>
+        <strong class="stat-value stat-value--text" id="topInterest">—</strong>
+        <small><span id="topInterestPercent">0</span>% аудиторії</small>
+      </article>
+    </section>
+
+    <section class="container group-section" id="groupSection" hidden>
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Рівень підготовки</span>
+          <h2>Розподіл студентів по групах</h2>
+        </div>
+        <p>Розраховується тільки за відповідями на питання 1–2.</p>
+      </div>
+
+      <div class="group-bar" aria-label="Розподіл по групах">
+        <div class="group-bar__one" id="group1Bar"><span id="group1BarLabel"></span></div>
+        <div class="group-bar__two" id="group2Bar"><span id="group2BarLabel"></span></div>
+      </div>
+    </section>
+
+    <section class="container charts-grid" id="chartsGrid" hidden>
+      <article class="chart-card">
+        <div class="chart-head">
+          <span class="chart-number">03</span>
+          <div><span>Категорії клієнтів</span><h2>З ким хочуть працювати?</h2></div>
+        </div>
+        <div class="bars" id="q3Chart"></div>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-head">
+          <span class="chart-number">04</span>
+          <div><span>Напрями роботи</span><h2>Що цікавить найбільше?</h2></div>
+        </div>
+        <div class="bars" id="q4Chart"></div>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-head">
+          <span class="chart-number">05</span>
+          <div><span>Формат діяльності</span><h2>Як хочуть працювати?</h2></div>
+        </div>
+        <div class="bars" id="q5Chart"></div>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-head">
+          <span class="chart-number">06</span>
+          <div><span>Напрям розвитку</span><h2>Що хочуть поглибити?</h2></div>
+        </div>
+        <div class="bars" id="q6Chart"></div>
+      </article>
+    </section>
+
+    <footer class="container dash-footer">
+      <p>Відсоток для питань 3–6 = кількість студентів, які обрали варіант / загальна кількість студентів × 100. Оскільки дозволений мультивибір, сума відсотків у межах одного питання може перевищувати 100%.</p>
+    </footer>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
