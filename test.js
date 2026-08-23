@@ -7,15 +7,17 @@ const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbw7qy_3A-DjvsvxN5kqLe9L7AC7Th9oPgBpXdOFAvEqU3gbvLrf0z06bM7iMWyARV_LDw/exec";
 
 // Telegram
-// ВСТАВ СВІЙ АКТУАЛЬНИЙ ТОКЕН БОТА
+// ВСТАВ СЮДИ СВІЙ АКТУАЛЬНИЙ ТОКЕН БОТА
 const TELEGRAM_BOT_TOKEN = "8923050722:AAH66L5pmpKpUSQDnKLjB_4mYnksvMugnoo";
 const TELEGRAM_CHAT_ID = "564669923";
 
-// Telegram-групи за результатом тесту
+// Telegram-групи
 const GROUP_1_URL = "https://t.me/+8a7XdlVsYpkxMzky";
 const GROUP_2_URL = "https://t.me/+JT4xV_thmT02OGUy";
 
-/* ============================================================ */
+/* ============================================================
+   DOM
+   ============================================================ */
 
 const form = document.getElementById("profileForm");
 const questions = [...document.querySelectorAll(".question")];
@@ -44,7 +46,7 @@ const scores = {
 };
 
 /* ============================================================
-   ТЕКСТИ ВІДПОВІДЕЙ
+   ТЕКСТИ ВІДПОВІДЕЙ ДЛЯ TELEGRAM
    ============================================================ */
 
 const labels = {
@@ -78,7 +80,7 @@ function oneValue(name) {
 }
 
 /* ============================================================
-   ПЕРЕМИКАННЯ ПИТАНЬ
+   ВІДОБРАЖЕННЯ ПОТОЧНОГО ПИТАННЯ
    ============================================================ */
 
 function renderStep() {
@@ -117,12 +119,12 @@ function renderStep() {
 function validateCurrent() {
   const number = step + 1;
 
-  // Питання 1–2 — один варіант
+  // Питання 1–2: один варіант
   if (number <= 2 && !oneValue(`q${number}`)) {
     return "Оберіть один варіант відповіді.";
   }
 
-  // Питання 3–6 — мінімум один checkbox
+  // Питання 3–6: один або декілька варіантів
   if (number >= 3 && checkedValues(`q${number}`).length === 0) {
     return "Оберіть щонайменше один варіант.";
   }
@@ -131,7 +133,7 @@ function validateCurrent() {
 }
 
 /* ============================================================
-   КНОПКА ДАЛІ
+   КНОПКА "ДАЛІ"
    ============================================================ */
 
 nextBtn.addEventListener("click", () => {
@@ -148,7 +150,7 @@ nextBtn.addEventListener("click", () => {
 });
 
 /* ============================================================
-   КНОПКА НАЗАД
+   КНОПКА "НАЗАД"
    ============================================================ */
 
 prevBtn.addEventListener("click", () => {
@@ -160,42 +162,24 @@ prevBtn.addEventListener("click", () => {
 });
 
 /* ============================================================
-   ВИЗНАЧЕННЯ РЕЗУЛЬТАТУ
+   ВИЗНАЧЕННЯ ГРУПИ
    ============================================================ */
 
 function makeResult(score) {
-  /* ------------------------------
-     ГРУПА 1
-     2–4 бали
-     ------------------------------ */
-
+  // 2–4 бали
   if (score <= 4) {
     return {
       level: "Базовий рівень",
-
       group: "Група 1",
-
       groupUrl: GROUP_1_URL,
-
-      description:
-        "Ви перебуваєте на початковому етапі професійної підготовки та/або ще не маєте достатнього практичного досвіду. Основний акцент — основи психологічного консультування, структура консультації, формування запиту, терапевтичний контакт, професійні межі, базові техніки та практичне відпрацювання навичок.",
     };
   }
 
-  /* ------------------------------
-     ГРУПА 2
-     5–8 балів
-     ------------------------------ */
-
+  // 5–8 балів
   return {
     level: "Практичний рівень",
-
     group: "Група 2",
-
     groupUrl: GROUP_2_URL,
-
-    description:
-      "Ви маєте психологічну освіту та/або досвід консультування і вже маєте базове уявлення про професійну практику. Основний акцент — розбір складних випадків, розвиток консультативних навичок, професійна рефлексія, інтервізія та супервізійна підтримка.",
   };
 }
 
@@ -213,15 +197,11 @@ function buildPayload() {
 
   return {
     q1,
-
     q2,
 
     q3: checkedValues("q3"),
-
     q4: checkedValues("q4"),
-
     q5: checkedValues("q5"),
-
     q6: checkedValues("q6"),
 
     score,
@@ -237,14 +217,9 @@ function buildPayload() {
    ============================================================ */
 
 async function saveToGoogleSheets(payload) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("PASTE_")) {
+  if (!APPS_SCRIPT_URL) {
     throw new Error("Не вказаний APPS_SCRIPT_URL");
   }
-
-  /*
-    Використовуємо URLSearchParams,
-    щоб не створювати CORS preflight.
-  */
 
   const body = new URLSearchParams({
     payload: JSON.stringify(payload),
@@ -276,7 +251,7 @@ async function sendTelegram(payload) {
     TELEGRAM_BOT_TOKEN.includes("ВСТАВ_") ||
     !TELEGRAM_CHAT_ID
   ) {
-    console.warn("Telegram не налаштований — повідомлення пропущено.");
+    console.warn("Telegram не налаштований.");
 
     return;
   }
@@ -287,16 +262,16 @@ async function sendTelegram(payload) {
     "",
 
     `Рівень: ${payload.level}`,
-
     `Бали: ${payload.score} / 8`,
-
     `Рекомендована група: ${payload.group_name}`,
 
     "",
 
     `1. Освіта: ${labels.q1[payload.q1]}`,
 
-    `2. Досвід: ${labels.q2[payload.q2]}`,
+    "",
+
+    `2. Досвід консультування: ${labels.q2[payload.q2]}`,
 
     "",
 
@@ -304,11 +279,11 @@ async function sendTelegram(payload) {
 
     "",
 
-    `4. Напрями:\n• ${payload.q4.join("\n• ")}`,
+    `4. Напрями психологічної роботи:\n• ${payload.q4.join("\n• ")}`,
 
     "",
 
-    `5. Формат діяльності:\n• ${payload.q5.join("\n• ")}`,
+    `5. Формат професійної діяльності:\n• ${payload.q5.join("\n• ")}`,
 
     "",
 
@@ -326,9 +301,7 @@ async function sendTelegram(payload) {
 
     body: JSON.stringify({
       chat_id: TELEGRAM_CHAT_ID,
-
       text,
-
       disable_web_page_preview: true,
     }),
   });
@@ -339,13 +312,13 @@ async function sendTelegram(payload) {
 }
 
 /* ============================================================
-   ПОКАЗ РЕЗУЛЬТАТУ
+   ФІНАЛЬНИЙ ЕКРАН
    ============================================================ */
 
 function showResult(payload) {
   const result = makeResult(payload.score);
 
-  /* Приховуємо тест */
+  /* Приховуємо форму */
 
   form.style.display = "none";
 
@@ -367,68 +340,39 @@ function showResult(payload) {
     progress.style.display = "none";
   }
 
-  /* Результат */
+  /* Фінальна картка */
 
-  document.getElementById("resultScore").textContent = payload.score;
+  const resultCard = document.getElementById("resultCard");
 
-  document.getElementById("resultTitle").textContent = result.level;
+  resultCard.innerHTML = `
+    <div class="result-thanks">
 
-  document.getElementById("resultDescription").textContent = result.description;
+      <div class="result-thanks__icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
 
-  document.getElementById("resultGroup").textContent = result.group;
+      <h2 class="result-thanks__title">
+        Дякуємо за проходження тесту!
+      </h2>
 
-  /* ========================================================
-     TELEGRAM GROUP BUTTON
-     ======================================================== */
+      <p class="result-thanks__text">
+        Ваші відповіді збережено.
+      </p>
 
-  let groupButton = document.getElementById("telegramGroupButton");
-
-  /*
-    Якщо кнопки ще немає в HTML —
-    створюємо її автоматично.
-  */
-
-  if (!groupButton) {
-    groupButton = document.createElement("a");
-
-    groupButton.id = "telegramGroupButton";
-
-    groupButton.className = "btn";
-
-    groupButton.innerHTML = `
+      <a
+        href="${result.groupUrl}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn result-thanks__button"
+      >
         <i class="fa-brands fa-telegram"></i>
         Приєднатися до Telegram-групи
-      `;
+      </a>
 
-    groupButton.target = "_blank";
+    </div>
+  `;
 
-    groupButton.rel = "noopener noreferrer";
-
-    groupButton.style.marginTop = "24px";
-
-    groupButton.style.display = "inline-flex";
-
-    groupButton.style.alignItems = "center";
-
-    groupButton.style.justifyContent = "center";
-
-    groupButton.style.gap = "10px";
-
-    const resultCard = document.getElementById("resultCard");
-
-    resultCard.appendChild(groupButton);
-  }
-
-  /*
-    ВАЖЛИВО:
-    посилання залежить від результату.
-  */
-
-  groupButton.href = result.groupUrl;
-
-  /* Показуємо картку */
-
-  document.getElementById("resultCard").classList.add("is-visible");
+  resultCard.classList.add("is-visible");
 
   window.scrollTo({
     top: 0,
@@ -437,7 +381,7 @@ function showResult(payload) {
 }
 
 /* ============================================================
-   SUBMIT
+   ВІДПРАВКА ФОРМИ
    ============================================================ */
 
 form.addEventListener("submit", async (event) => {
@@ -458,30 +402,18 @@ form.addEventListener("submit", async (event) => {
   submitBtn.disabled = true;
 
   submitBtn.innerHTML = `
-        <i class="fa-solid fa-circle-notch fa-spin"></i>
-        Зберігаємо...
-      `;
+      <i class="fa-solid fa-circle-notch fa-spin"></i>
+      Зберігаємо...
+    `;
 
   formError.textContent = "";
 
   try {
-    /*
-        1. Записуємо результат
-           у Google Sheets.
-      */
+    /* 1. Google Sheets */
 
     await saveToGoogleSheets(payload);
 
-    /*
-        2. Відправляємо
-           результат у Telegram.
-
-        Якщо Telegram тимчасово
-        не відповість —
-        тест все одно завершиться,
-        бо дані вже записані
-        в Google Sheets.
-      */
+    /* 2. Telegram */
 
     try {
       await sendTelegram(payload);
@@ -489,18 +421,13 @@ form.addEventListener("submit", async (event) => {
       console.error("Telegram:", telegramError);
     }
 
-    /*
-        3. Показуємо студенту
-           його результат
-           + правильну Telegram-групу.
-      */
+    /* 3. Фінальний екран */
 
     showResult(payload);
   } catch (error) {
     console.error(error);
 
-    formError.textContent =
-      "Не вдалося зберегти відповідь. Перевірте підключення та спробуйте ще раз.";
+    formError.textContent = "Не вдалося зберегти відповідь. Спробуйте ще раз.";
 
     submitBtn.disabled = false;
 
