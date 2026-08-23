@@ -538,6 +538,7 @@ a {
     padding: 0 16px;
     margin-bottom: 18px;
     border-radius: 26px;
+    align-items: center;
   }
 
   .progress {
