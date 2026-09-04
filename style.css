@@ -1000,6 +1000,10 @@ span.course-title-lg {
   border-bottom-right-radius: 0;
 }
 
+.course-block p {
+  font-size: 16px;
+}
+
 .course-block h5 {
   margin-bottom: 14px;
   text-align: center;
