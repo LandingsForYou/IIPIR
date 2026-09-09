@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>5 навичок, які необхідні психологу | Безкоштовний вебінар</title>
+
+    <meta
+      name="description"
+      content="Безкоштовний вебінар «5 навичок, які необхідні психологу». Приєднуйтесь до Telegram-групи та отримайте доступ до вебінару."
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <link rel="stylesheet" href="course-page.css" />
+
+    <style>
+      .course-btn-main {
+        gap: 10px;
+      }
+    </style>
+  </head>
+
+  <body class="single-course-page">
+    <div class="back single-course-header">
+      <header class="site-header">
+        <div class="container header-inner">
+          <a href="index.html" class="logo" aria-label="На головну">
+            <img src="images/IIPIR.png" alt="IIPIR Psycourses logo" />
+          </a>
+
+          <nav class="nav" id="mobileMenu" aria-label="Навігація">
+            <a href="index.html">На головну</a>
+            <a href="#webinar-info">Про вебінар</a>
+            <a href="#join">Приєднатися</a>
+          </nav>
+
+          <button
+            class="burger"
+            id="burgerBtn"
+            type="button"
+            aria-label="Відкрити меню"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <main>
+      <section class="single-course-section" id="webinar-info">
+        <div class="container">
+          <div class="course-card" id="psychologist-skills-webinar">
+            <!-- ОСНОВНИЙ КОНТЕНТ -->
+            <div class="course-main">
+              <div class="course-top">
+                <div class="course-badge">Безкоштовний вебінар</div>
+
+                <h1 class="course-title-lg">
+                  5 навичок, які необхідні психологу
+                </h1>
+
+                <div class="logo-text" aria-label="IIPIR Psycourses">
+                  <img src="images/IIPIR.png" alt="IIPIR Psycourses logo" />
+                </div>
+
+                <p class="course-desc">
+                  На безкоштовному вебінарі розберемо
+                  <strong>5 ключових навичок</strong>, які необхідні психологу
+                  для професійної та впевненої роботи з клієнтами.
+                </p>
+
+                <p class="course-desc">
+                  Вебінар буде корисним студентам психології, психологам, які
+                  починають практику, а також спеціалістам, які хочуть
+                  систематизувати свої професійні навички.
+                </p>
+
+                <div class="course-tags">
+                  <span>
+                    <i class="fa-solid fa-video"></i>
+                    Онлайн-вебінар
+                  </span>
+
+                  <span>
+                    <i class="fa-solid fa-gift"></i>
+                    Участь безкоштовна
+                  </span>
+
+                  <span>
+                    <i class="fa-brands fa-telegram"></i>
+                    Доступ через Telegram
+                  </span>
+                </div>
+
+                <!-- МОБІЛЬНИЙ CTA -->
+                <div class="course-mobile-price">
+                  <div class="course-discount">Безкоштовно</div>
+
+                  <div class="course-mobile-price-label">
+                    Приєднуйтесь до вебінару
+                  </div>
+
+                  <p class="price-card-note">
+                    Перейдіть у Telegram-групу, щоб отримати всю інформацію та
+                    доступ до безкоштовного вебінару.
+                  </p>
+
+                  <div class="course-mobile-actions">
+                    <a
+                      href="https://t.me/+05qf2KMAOZM5MjBi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn course-btn-main"
+                    >
+                      <i class="fa-brands fa-telegram"></i>
+                      Приєднатися
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ПРАВА КАРТКА -->
+            <aside class="course-side" id="join">
+              <div class="price-card">
+                <div class="course-discount">Безкоштовний вебінар</div>
+
+                <p class="price-card-note">
+                  Приєднуйтесь до Telegram-групи, щоб отримати доступ до
+                  вебінару та всю організаційну інформацію.
+                </p>
+
+                <div class="price-card-actions">
+                  <a
+                    href="https://t.me/+05qf2KMAOZM5MjBi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn course-btn-main"
+                  >
+                    <i class="fa-brands fa-telegram"></i>
+                    Приєднатися
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const burgerBtn = document.getElementById("burgerBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (burgerBtn && mobileMenu) {
+        burgerBtn.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.toggle("is-open");
+
+          burgerBtn.classList.toggle("is-active", isOpen);
+
+          burgerBtn.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("is-open");
+            burgerBtn.classList.remove("is-active");
+            burgerBtn.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
