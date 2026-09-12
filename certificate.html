@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Заявка на отримання сертифікату | ІІПІР</title>
+    <meta
+      name="description"
+      content="Форма подання заявки на отримання сертифікату Інституту інноваційної психології і реабілітації."
+    />
+    <meta name="robots" content="noindex, follow" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Використовуємо основні стилі твого сайту -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <link rel="stylesheet" href="certificate.css" />
+  </head>
+
+  <body class="certificate-page">
+    <div class="certificate-page__hero">
+      <header class="site-header certificate-header">
+        <div class="container header-inner">
+          <a href="index.html" class="logo" aria-label="На головну">
+            <img src="images/IIPIR.png" alt="IIPIR Psycourses logo" />
+          </a>
+
+          <nav class="nav" id="mobileMenu" aria-label="Головна навігація">
+            <a href="index.html#about">Про нас</a>
+            <a href="index.html#teachers">Викладачі</a>
+            <a href="index.html#program">Навчання</a>
+            <a href="index.html#contacts">Контакти</a>
+          </nav>
+
+          <button
+            class="burger"
+            id="burgerBtn"
+            type="button"
+            aria-label="Відкрити меню"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="certificate-order">
+        <div class="container certificate-order__container">
+          <a class="certificate-back-link" href="index.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Повернутися на головну</span>
+          </a>
+
+          <div class="certificate-order__grid">
+            <section class="certificate-order__intro">
+              <div class="section-label certificate-order__label">
+                <i class="fa-solid fa-certificate"></i>
+                <span>Сертифікація</span>
+              </div>
+
+              <h1 class="certificate-order__title">
+                Заявка на отримання
+                <span>сертифікату</span>
+              </h1>
+
+              <p class="certificate-order__lead">
+                Заповніть коротку форму після проходження навчання. Для подання
+                заявки потрібно вказати лише ПІБ та дату народження.
+              </p>
+
+              <div
+                class="certificate-order__info certificate-order__info--mobile-after-form"
+              >
+                <div class="certificate-info-card">
+                  <div class="certificate-info-card__icon">
+                    <i class="fa-solid fa-user-check"></i>
+                  </div>
+
+                  <div>
+                    <strong>Вкажіть дані уважно</strong>
+                    <p>
+                      ПІБ буде використано для ідентифікації заявки та
+                      оформлення сертифікату.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="certificate-info-card">
+                  <div class="certificate-info-card__icon">
+                    <i class="fa-regular fa-calendar"></i>
+                  </div>
+
+                  <div>
+                    <strong>Одна заявка на місяць</strong>
+                    <p>
+                      Одна людина може отримати один сертифікат протягом
+                      календарного місяця.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="certificate-form-card" aria-labelledby="formTitle">
+              <div class="certificate-form-card__head">
+                <span class="certificate-form-card__step">01</span>
+
+                <div>
+                  <p class="certificate-form-card__eyebrow">Дані учасника</p>
+                  <h2 id="formTitle">Заповніть заявку</h2>
+                </div>
+              </div>
+
+              <form id="certificateForm" class="certificate-form" novalidate>
+                <div class="certificate-field">
+                  <label for="fullName">
+                    ПІБ
+                    <span aria-hidden="true">*</span>
+                  </label>
+
+                  <div class="certificate-input-wrap">
+                    <i class="fa-regular fa-user"></i>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      autocomplete="name"
+                      placeholder="Прізвище Ім’я По батькові"
+                      required
+                    />
+                  </div>
+
+                  <p class="certificate-field__hint">
+                    Вкажіть ПІБ так, як воно має бути зазначене у сертифікаті.
+                  </p>
+                </div>
+
+                <div class="certificate-field">
+                  <label for="birthDate">
+                    Дата народження
+                    <span aria-hidden="true">*</span>
+                  </label>
+
+                  <div class="certificate-input-wrap">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <input
+                      id="birthDate"
+                      name="birthDate"
+                      type="date"
+                      autocomplete="bday"
+                      required
+                    />
+                  </div>
+
+                  <p class="certificate-field__hint">
+                    Використовується для перевірки повторної заявки.
+                  </p>
+                </div>
+
+                <label class="certificate-consent">
+                  <input id="consent" type="checkbox" required />
+                  <span class="certificate-consent__box" aria-hidden="true">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+
+                  <span>
+                    Підтверджую правильність введених даних та погоджуюсь на їх
+                    обробку для оформлення сертифікату.
+                  </span>
+                </label>
+
+                <button
+                  id="certificateSubmit"
+                  class="certificate-submit"
+                  type="submit"
+                >
+                  <span>Згенерувати заявку</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <div
+                  id="certificateResult"
+                  class="certificate-result"
+                  role="status"
+                  aria-live="polite"
+                ></div>
+              </form>
+
+              <div class="certificate-form-card__note">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>
+                  Дані використовуються лише для ідентифікації учасника та
+                  формування заявки на сертифікат.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <div class="certificate-page__decor certificate-page__decor--one">
+        ECTS
+      </div>
+      <div class="certificate-page__decor certificate-page__decor--two">
+        2013
+      </div>
+    </div>
+
+    <footer class="certificate-footer">
+      <div class="container certificate-footer__inner">
+        <a href="index.html" class="certificate-footer__logo">
+          <img src="images/IIPIR.png" alt="IIPIR Psycourses" />
+        </a>
+
+        <div class="certificate-footer__contacts">
+          <a href="mailto:iipirpsy@gmail.com">
+            <i class="fa-regular fa-envelope"></i>
+            iipirpsy@gmail.com
+          </a>
+
+          <a href="tel:+380987496363">
+            <i class="fa-solid fa-phone"></i>
+            098 749 63 63
+          </a>
+
+          <a
+            href="https://www.instagram.com/psycourses_iipir"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-instagram"></i>
+            psycourses_iipir
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <iframe
+      id="certificateSubmitFrame"
+      name="certificateSubmitFrame"
+      title="Надсилання заявки"
+      aria-hidden="true"
+      tabindex="-1"
+      style="display: none"
+    ></iframe>
+
+    <script src="certificate.js"></script>
+  </body>
+</html>
