@@ -1167,3 +1167,59 @@
     font-size: 16px;
   }
 }
+
+/* =========================================
+   FINAL iOS SAFARI FIX
+   ========================================= */
+
+@supports (-webkit-touch-callout: none) {
+  /* SELECT — повертаємо нативний iOS picker */
+  .certificate-input-wrap select {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    height: 52px !important;
+    min-height: 52px !important;
+
+    box-sizing: border-box !important;
+
+    -webkit-appearance: menulist !important;
+    appearance: auto !important;
+
+    font-size: 16px !important;
+
+    overflow: hidden !important;
+  }
+
+  /* DATE — не даємо Safari розтягнути input */
+  .certificate-input-wrap--date {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    overflow: hidden !important;
+  }
+
+  .certificate-input-wrap--date input[type="date"] {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    height: 52px !important;
+    min-height: 52px !important;
+
+    box-sizing: border-box !important;
+
+    -webkit-appearance: auto !important;
+    appearance: auto !important;
+
+    font-size: 16px !important;
+  }
+}
