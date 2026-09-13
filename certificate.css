@@ -1092,3 +1092,78 @@
 .certificate-input-wrap select {
   flex: 1 1 auto;
 }
+
+/* =========================================
+   HARD FIX — iPhone Safari date/select
+   ========================================= */
+
+.certificate-form-card,
+.certificate-form,
+.certificate-field,
+.certificate-input-wrap {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.certificate-input-wrap {
+  overflow: hidden;
+}
+
+.certificate-input-wrap select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  font-size: 16px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.certificate-input-wrap--date {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.certificate-input-wrap--date input[type="date"] {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+
+  box-sizing: border-box;
+
+  font-size: 16px;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.certificate-input-wrap--date input[type="date"]::-webkit-date-and-time-value {
+  width: 100%;
+  min-width: 0;
+  text-align: left;
+}
+
+.certificate-input-wrap--date input[type="date"]::-webkit-datetime-edit {
+  min-width: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .certificate-input-wrap input,
+  .certificate-input-wrap select {
+    font-size: 16px;
+  }
+}

@@ -44,36 +44,8 @@ const result = document.getElementById("certificateResult");
 const submitButton = document.getElementById("certificateSubmit");
 const submitFrame = document.getElementById("certificateSubmitFrame");
 
-const eventNameInput = document.getElementById("eventName");
-
-let activeEvents = [];
-
 let requestInProgress = false;
 let responseTimeout = null;
-
-function loadActiveEvents() {
-  if (!submitFrame) return;
-
-  submitFrame.src = GOOGLE_APPS_SCRIPT_URL + "?action=events";
-}
-function fillEventOptions(events) {
-  if (!eventNameInput) return;
-
-  // Залишаємо перший пункт
-  // "Оберіть вебінар або курс"
-
-  eventNameInput.length = 1;
-
-  events.forEach((event) => {
-    const option = document.createElement("option");
-
-    option.value = event.name;
-
-    option.textContent = event.name;
-
-    eventNameInput.appendChild(option);
-  });
-}
 
 function showResult(message, type = "info") {
   if (!result) return;
@@ -212,23 +184,6 @@ certificateForm?.addEventListener("submit", (event) => {
   sendCertificateRequest();
 });
 
-// Отримуємо список активних курсів і вебінарів
-window.addEventListener("message", (event) => {
-  const data = event.data;
-
-  if (!data || typeof data !== "object" || data.type !== "certificate-events") {
-    return;
-  }
-
-  activeEvents = Array.isArray(data.payload) ? data.payload : [];
-
-  fillEventOptions(activeEvents);
-
-  console.log("Завантажено заходів:", activeEvents.length);
-
-  console.log(activeEvents);
-});
-
 // Відповідь з Apps Script
 window.addEventListener("message", (event) => {
   const data = event.data;
@@ -279,5 +234,3 @@ certificateForm?.addEventListener("input", (event) => {
     event.target.classList.remove("is-invalid");
   }
 });
-
-loadActiveEvents();
