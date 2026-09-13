@@ -223,22 +223,15 @@
                   <div class="certificate-input-wrap">
                     <i class="fa-solid fa-graduation-cap"></i>
 
-                    <input
-                      id="eventName"
-                      name="eventName"
-                      type="text"
-                      list="eventOptions"
-                      autocomplete="off"
-                      placeholder="Почніть вводити назву..."
-                      required
-                    />
-
-                    <datalist id="eventOptions"></datalist>
+                    <select id="eventName" name="eventName" required>
+                      <option value="" selected disabled>
+                        Оберіть вебінар або курс
+                      </option>
+                    </select>
                   </div>
 
                   <p class="certificate-field__hint">
-                    Почніть вводити назву та оберіть потрібний вебінар або курс
-                    зі списку.
+                    Оберіть потрібний вебінар або курс зі списку.
                   </p>
                 </div>
 

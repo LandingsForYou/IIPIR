@@ -1051,3 +1051,44 @@
     padding-left: 44px;
   }
 }
+
+/* =========================================
+   FIX: iPhone / Safari
+   Поля форми не виходять за межі контейнера
+   ========================================= */
+
+.certificate-field,
+.certificate-input-wrap {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.certificate-input-wrap input,
+.certificate-input-wrap select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Safari / iPhone — поле дати */
+.certificate-input-wrap input[type="date"] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Нативний елемент дати Safari */
+.certificate-input-wrap input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+  min-width: 0;
+}
+
+.certificate-input-wrap input,
+.certificate-input-wrap select {
+  flex: 1 1 auto;
+}

@@ -45,7 +45,6 @@ const submitButton = document.getElementById("certificateSubmit");
 const submitFrame = document.getElementById("certificateSubmitFrame");
 
 const eventNameInput = document.getElementById("eventName");
-const eventOptions = document.getElementById("eventOptions");
 
 let activeEvents = [];
 
@@ -57,18 +56,22 @@ function loadActiveEvents() {
 
   submitFrame.src = GOOGLE_APPS_SCRIPT_URL + "?action=events";
 }
-
 function fillEventOptions(events) {
-  if (!eventOptions) return;
+  if (!eventNameInput) return;
 
-  eventOptions.innerHTML = "";
+  // Залишаємо перший пункт
+  // "Оберіть вебінар або курс"
+
+  eventNameInput.length = 1;
 
   events.forEach((event) => {
     const option = document.createElement("option");
 
     option.value = event.name;
 
-    eventOptions.appendChild(option);
+    option.textContent = event.name;
+
+    eventNameInput.appendChild(option);
   });
 }
 
