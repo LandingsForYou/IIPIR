@@ -72,8 +72,8 @@
               </h1>
 
               <p class="certificate-order__lead">
-                Заповніть коротку форму після проходження навчання. Для подання
-                заявки потрібно вказати лише ПІБ та дату народження.
+                Заповніть дані учасника та оберіть курс або вебінар, після
+                проходження якого бажаєте отримати сертифікат.
               </p>
 
               <div
@@ -144,6 +144,31 @@
                 </div>
 
                 <div class="certificate-field">
+                  <label for="fullNameEn">
+                    ПІБ латиницею
+                    <span aria-hidden="true">*</span>
+                  </label>
+
+                  <div class="certificate-input-wrap">
+                    <i class="fa-solid fa-language"></i>
+
+                    <input
+                      id="fullNameEn"
+                      name="fullNameEn"
+                      type="text"
+                      autocomplete="off"
+                      placeholder="Ім’я та прізвище латиницею"
+                      required
+                    />
+                  </div>
+
+                  <p class="certificate-field__hint">
+                    Вкажіть ім’я та прізвище латиницею так, як вони мають бути
+                    зазначені в англомовній частині сертифіката.
+                  </p>
+                </div>
+
+                <div class="certificate-field">
                   <label for="birthDate">
                     Дата народження
                     <span aria-hidden="true">*</span>
@@ -162,6 +187,58 @@
 
                   <p class="certificate-field__hint">
                     Використовується для перевірки повторної заявки.
+                  </p>
+                </div>
+
+                <div class="certificate-field">
+                  <label for="email">
+                    Email
+                    <span aria-hidden="true">*</span>
+                  </label>
+
+                  <div class="certificate-input-wrap">
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="example@gmail.com"
+                      required
+                    />
+                  </div>
+
+                  <p class="certificate-field__hint">
+                    На цю адресу буде надіслано готовий сертифікат у PDF.
+                  </p>
+                </div>
+
+                <div class="certificate-field">
+                  <label for="eventName">
+                    Вебінар або курс
+                    <span aria-hidden="true">*</span>
+                  </label>
+
+                  <div class="certificate-input-wrap">
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <input
+                      id="eventName"
+                      name="eventName"
+                      type="text"
+                      list="eventOptions"
+                      autocomplete="off"
+                      placeholder="Почніть вводити назву..."
+                      required
+                    />
+
+                    <datalist id="eventOptions"></datalist>
+                  </div>
+
+                  <p class="certificate-field__hint">
+                    Почніть вводити назву та оберіть потрібний вебінар або курс
+                    зі списку.
                   </p>
                 </div>
 

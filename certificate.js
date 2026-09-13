@@ -44,8 +44,33 @@ const result = document.getElementById("certificateResult");
 const submitButton = document.getElementById("certificateSubmit");
 const submitFrame = document.getElementById("certificateSubmitFrame");
 
+const eventNameInput = document.getElementById("eventName");
+const eventOptions = document.getElementById("eventOptions");
+
+let activeEvents = [];
+
 let requestInProgress = false;
 let responseTimeout = null;
+
+function loadActiveEvents() {
+  if (!submitFrame) return;
+
+  submitFrame.src = GOOGLE_APPS_SCRIPT_URL + "?action=events";
+}
+
+function fillEventOptions(events) {
+  if (!eventOptions) return;
+
+  eventOptions.innerHTML = "";
+
+  events.forEach((event) => {
+    const option = document.createElement("option");
+
+    option.value = event.name;
+
+    eventOptions.appendChild(option);
+  });
+}
 
 function showResult(message, type = "info") {
   if (!result) return;
@@ -82,6 +107,10 @@ function validateCertificateForm() {
 
   const fullName = certificateForm.elements.fullName;
   const birthDate = certificateForm.elements.birthDate;
+
+  const fullNameEn = certificateForm.elements.fullNameEn;
+  const email = certificateForm.elements.email;
+  const eventName = certificateForm.elements.eventName;
   const consent = document.getElementById("consent");
 
   const invalidFields = [];
@@ -94,11 +123,23 @@ function validateCertificateForm() {
     invalidFields.push(birthDate);
   }
 
+  if (!fullNameEn.value.trim()) {
+    invalidFields.push(fullNameEn);
+  }
+
+  if (!email.value.trim()) {
+    invalidFields.push(email);
+  }
+
+  if (!eventName.value.trim()) {
+    invalidFields.push(eventName);
+  }
+
   invalidFields.forEach((field) => field.classList.add("is-invalid"));
 
   if (invalidFields.length) {
     invalidFields[0].focus();
-    showResult("Будь ласка, заповніть ПІБ та дату народження.", "error");
+    showResult("Будь ласка, заповніть усі обов’язкові поля.", "error");
     return false;
   }
 
@@ -106,7 +147,7 @@ function validateCertificateForm() {
     consent?.focus();
     showResult(
       "Підтвердьте згоду на обробку даних для оформлення сертифікату.",
-      "error"
+      "error",
     );
     return false;
   }
@@ -126,7 +167,10 @@ function sendCertificateRequest() {
 
   const fields = {
     fullName: certificateForm.elements.fullName.value.trim(),
-    birthDate: certificateForm.elements.birthDate.value
+    fullNameEn: certificateForm.elements.fullNameEn.value.trim(),
+    birthDate: certificateForm.elements.birthDate.value,
+    email: certificateForm.elements.email.value.trim(),
+    eventName: certificateForm.elements.eventName.value.trim(),
   };
 
   Object.entries(fields).forEach(([name, value]) => {
@@ -150,10 +194,7 @@ function sendCertificateRequest() {
 
   responseTimeout = setTimeout(() => {
     setLoading(false);
-    showResult(
-      "Сервіс не відповів вчасно. Спробуйте ще раз.",
-      "error"
-    );
+    showResult("Сервіс не відповів вчасно. Спробуйте ще раз.", "error");
   }, 20000);
 
   postForm.submit();
@@ -166,6 +207,23 @@ certificateForm?.addEventListener("submit", (event) => {
   if (!validateCertificateForm()) return;
 
   sendCertificateRequest();
+});
+
+// Отримуємо список активних курсів і вебінарів
+window.addEventListener("message", (event) => {
+  const data = event.data;
+
+  if (!data || typeof data !== "object" || data.type !== "certificate-events") {
+    return;
+  }
+
+  activeEvents = Array.isArray(data.payload) ? data.payload : [];
+
+  fillEventOptions(activeEvents);
+
+  console.log("Завантажено заходів:", activeEvents.length);
+
+  console.log(activeEvents);
 });
 
 // Відповідь з Apps Script
@@ -201,10 +259,9 @@ window.addEventListener("message", (event) => {
 
   showResult(
     escapeHtml(
-      response.message ||
-      "Не вдалося створити заявку. Спробуйте ще раз."
+      response.message || "Не вдалося створити заявку. Спробуйте ще раз.",
     ),
-    "error"
+    "error",
   );
 });
 
@@ -219,3 +276,5 @@ certificateForm?.addEventListener("input", (event) => {
     event.target.classList.remove("is-invalid");
   }
 });
+
+loadActiveEvents();

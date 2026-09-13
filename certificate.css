@@ -81,7 +81,6 @@
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(460px, 0.72fr);
   gap: clamp(40px, 7vw, 100px);
-  align-items: center;
 }
 
 .certificate-order__intro {
