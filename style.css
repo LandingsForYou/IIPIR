@@ -2152,14 +2152,14 @@ span.course-title-lg {
   }
 }
 
-#free-checklist .promo-price {
+.free-checklist .promo-price {
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#free-checklist .promo-price span {
+.free-checklist .promo-price span {
   margin-bottom: 0;
 }
 
@@ -2408,4 +2408,150 @@ span.course-title-lg {
   font-family: "HelveticaBold";
   font-size: 18px;
   letter-spacing: 0.15em;
+}
+
+/* ===== PURCHASE NOTICE ===== */
+
+.purchase-notice {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  z-index: 9999;
+
+  width: min(calc(100% - 30px), 1000px);
+
+  transform: translateX(-50%);
+
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(122, 138, 107, 0.18);
+  border-radius: 20px;
+
+  box-shadow: 0 15px 45px rgba(63, 74, 60, 0.15);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.purchase-notice__inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 12px 16px 12px 20px;
+}
+
+.purchase-notice__inner > i {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.purchase-notice__inner p {
+  flex: 1;
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.purchase-notice__inner strong {
+  font-family: "HelveticaBold";
+  font-weight: 700;
+}
+
+.purchase-notice__link {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0 20px;
+
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.purchase-notice__link:hover {
+  transform: translateY(-2px);
+}
+
+.purchase-notice__close {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  color: var(--text);
+  background: rgba(122, 138, 107, 0.08);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.purchase-notice__close:hover {
+  background: rgba(122, 138, 107, 0.15);
+  transform: rotate(90deg);
+}
+
+.purchase-notice.is-hidden {
+  display: none;
+}
+@media (max-width: 767px) {
+  .purchase-notice {
+    bottom: 10px;
+    width: calc(100% - 20px);
+    border-radius: 18px;
+  }
+
+  .purchase-notice__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px 10px;
+
+    padding: 12px;
+  }
+
+  .purchase-notice__inner > i {
+    font-size: 17px;
+  }
+
+  .purchase-notice__inner p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .purchase-notice__link {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-height: 38px;
+
+    font-size: 13px;
+  }
+
+  .purchase-notice__close {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+  }
 }

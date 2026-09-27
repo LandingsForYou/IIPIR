@@ -404,3 +404,12 @@ courseToggleButtons.forEach((button) => {
     button.textContent = isOpen ? "Сховати" : "Дізнатись більше";
   });
 });
+
+const purchaseNotice = document.getElementById("purchaseNotice");
+const purchaseNoticeClose = document.getElementById("purchaseNoticeClose");
+
+if (purchaseNotice && purchaseNoticeClose) {
+  purchaseNoticeClose.addEventListener("click", () => {
+    purchaseNotice.classList.add("is-hidden");
+  });
+}
