@@ -584,3 +584,21 @@
     width: 100%;
   }
 }
+@media (max-width: 767px) {
+  .program-notice {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding: 14px 16px;
+  }
+
+  .program-notice i {
+    margin-top: 2px;
+    font-size: 17px;
+  }
+
+  .program-notice p {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+}
