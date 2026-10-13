@@ -12,8 +12,11 @@ const TELEGRAM_BOT_TOKEN = "8923050722:AAH66L5pmpKpUSQDnKLjB_4mYnksvMugnoo";
 const TELEGRAM_CHAT_ID = "564669923";
 
 // Telegram-групи
-const GROUP_1_URL = "https://t.me/+8a7XdlVsYpkxMzky";
-const GROUP_2_URL = "https://t.me/+JT4xV_thmT02OGUy";
+// Слабші студенти — непарні групи
+const GROUP_1_URL = "https://t.me/+eOs645Hi_MZmYzNi";
+
+// Сильніші студенти — парні групи
+const GROUP_2_URL = "https://t.me/+c7AzMyI0YQgxMmQy";
 
 /* ============================================================
    DOM
