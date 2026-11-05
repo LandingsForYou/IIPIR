@@ -11,12 +11,26 @@ const APPS_SCRIPT_URL =
 const TELEGRAM_BOT_TOKEN = "8923050722:AAH66L5pmpKpUSQDnKLjB_4mYnksvMugnoo";
 const TELEGRAM_CHAT_ID = "564669923";
 
-// Telegram-групи
-// Слабші студенти — непарні групи
-const GROUP_1_URL = "https://t.me/+eOs645Hi_MZmYzNi";
+// Telegram-групи за університетами.
+// Без параметра faculty (або з невідомим значенням) діють старі групи.
+const TELEGRAM_GROUPS = {
+  default: {
+    group1: "https://t.me/+eOs645Hi_MZmYzNi",
+    group2: "https://t.me/+c7AzMyI0YQgxMmQy",
+  },
+  european: {
+    group1: "https://t.me/+HJ85BIXgv58xOWEy",
+    group2: "https://t.me/+O-FXAQPOHz9iNTA6",
+  },
+};
 
-// Сильніші студенти — парні групи
-const GROUP_2_URL = "https://t.me/+c7AzMyI0YQgxMmQy";
+// Приклад окремого посилання: test.html?faculty=european
+// Параметр перевіряється за білим списком, щоб не було випадкових переходів.
+const facultyParam = new URLSearchParams(window.location.search).get("faculty");
+const faculty = Object.prototype.hasOwnProperty.call(TELEGRAM_GROUPS, facultyParam)
+  ? facultyParam
+  : "default";
+const currentGroups = TELEGRAM_GROUPS[faculty];
 
 /* ============================================================
    DOM
@@ -174,7 +188,7 @@ function makeResult(score) {
     return {
       level: "Базовий рівень",
       group: "Група 1",
-      groupUrl: GROUP_1_URL,
+      groupUrl: currentGroups.group1,
     };
   }
 
@@ -182,7 +196,7 @@ function makeResult(score) {
   return {
     level: "Практичний рівень",
     group: "Група 2",
-    groupUrl: GROUP_2_URL,
+    groupUrl: currentGroups.group2,
   };
 }
 
