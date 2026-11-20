@@ -2439,3 +2439,37 @@ span.course-title-lg {
   line-height: 1.5;
   color: var(--text);
 }
+
+/* Завершений вебінар */
+.course-btn-main.is-ended {
+  background: #e7e7e4 !important;
+  color: transparent !important;
+  border: 1px solid #d9dcd5 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  position: relative;
+  user-select: none;
+  transform: none !important;
+  animation: none !important;
+}
+
+.course-btn-main.is-ended::after {
+  content: "🔒 Купити";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #858980;
+  font-family: "Helvetica", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.course-btn-main.is-ended:hover {
+  background: #e7e7e4 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
