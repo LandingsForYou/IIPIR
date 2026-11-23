@@ -990,6 +990,10 @@ span.course-title-lg {
   padding-top: 60px;
 }
 
+.course-block .course-list li {
+  font-size: 16px;
+}
+
 .course-block .card-meta {
   top: 0;
   bottom: auto;
